@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\views\\home\\catalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\views\\home\\catalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Sebezhko\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Sebezhko\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-06T09:20:42.41Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Catalog.cshtml",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "RelativeDocumentMoniker": "Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "RelativeToolTip": "Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-01T08:57:43.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\views\\home\\catalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\views\\home\\catalog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\models\\labels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\models\\labels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\models\\genres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\models\\genres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|c:\\works\\mpt\\third_course\\asp\\sebezhko\\sebezhko\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CCFA47-E8EA-42EC-92BD-B185C00C6BAA}|Sebezhko\\Sebezhko.csproj|solutionrelative:sebezhko\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Sebezhko\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Sebezhko\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-06T09:20:42.41Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Sebezhko\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Sebezhko\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-01T08:27:17.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Orders.cs",
+              "RelativeDocumentMoniker": "Sebezhko\\Models\\Orders.cs",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Orders.cs",
+              "RelativeToolTip": "Sebezhko\\Models\\Orders.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T08:05:16.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Genres.cs",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Genres.cs",
+              "RelativeDocumentMoniker": "Sebezhko\\Models\\Genres.cs",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Genres.cs",
+              "RelativeToolTip": "Sebezhko\\Models\\Genres.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T08:04:54.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Labels.cs",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Labels.cs",
+              "RelativeDocumentMoniker": "Sebezhko\\Models\\Labels.cs",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Labels.cs",
+              "RelativeToolTip": "Sebezhko\\Models\\Labels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T08:04:37.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Catalog.cshtml",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "RelativeDocumentMoniker": "Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "RelativeToolTip": "Sebezhko\\Views\\Home\\Catalog.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-28T18:26:49.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Products.cs",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Products.cs",
+              "RelativeDocumentMoniker": "Sebezhko\\Models\\Products.cs",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\Products.cs",
+              "RelativeToolTip": "Sebezhko\\Models\\Products.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T17:57:28.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Sebezhko\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Sebezhko\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-28T17:40:44.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Sebezhko\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Sebezhko\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T09:06:08.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Sebezhko\\Models\\AppDbContext.cs",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "Sebezhko\\Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T09:21:49.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Sebezhko\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Sebezhko\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-14T17:20:14.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Sebezhko\\appsettings.Development.json",
+              "ToolTip": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\appsettings.Development.json",
+              "RelativeToolTip": "Sebezhko\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-20T09:27:11.389Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
