@@ -96,3 +96,27 @@ h1 {
     height: 50px;
     padding-right: 20px;
 }
+
+.empty-cart-message {
+    text-align: center;
+    padding: 20px;
+}
+
+    .empty-cart-message p {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .empty-cart-message a {
+        margin-top: 10px;
+    }
+
+.checkout-button {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+    .checkout-button .btn-lg {
+        padding: 15px 30px;
+    }

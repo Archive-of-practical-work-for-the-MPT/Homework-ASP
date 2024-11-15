@@ -17,14 +17,14 @@
             {
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="@Url.Content(product.Path_Image)" alt="@product.Path_Image" />
+                        <img src="@Url.Content(product.Path_Image)" alt="@product.Name_Album" />
                         <h5>@product.Name_Album</h5>
                         <p>Цена: @product.Price.ToString("C")</p>
+                        <a href="/Home/AddToCart?ID=@product.ID" class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;">В корзину</a>
                     </div>
                 </div>
             }
         </div>
     </div>
-
 </body>
 </html>

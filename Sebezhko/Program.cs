@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Sebezhko.Models;
 
@@ -5,6 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => //CookieAuthenticationOptions
+{
+    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Home/SignIn");
+});
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -26,9 +34,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=SignIn}/{id?}");
 
 app.Run();

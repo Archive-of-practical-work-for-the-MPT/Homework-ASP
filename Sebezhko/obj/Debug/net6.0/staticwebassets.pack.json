@@ -9,10 +9,6 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
       "Id": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

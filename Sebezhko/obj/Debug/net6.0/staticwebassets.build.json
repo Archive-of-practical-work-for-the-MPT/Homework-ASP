@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0zStTkTKfy0ZXgs/YB6frwQVkLP+HuFiA0hGF/ggtSI=",
+  "Hash": "31XNvSOadlGDVP4XK6++dVCq5sKhnqGCsrrpgLndNbo=",
   "Source": "Sebezhko",
   "BasePath": "_content/Sebezhko",
   "Mode": "Default",
@@ -72,25 +72,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\favicon.ico",
-      "SourceId": "Sebezhko",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\",
-      "BasePath": "_content/Sebezhko",
-      "RelativePath": "favicon.ico",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
       "Identity": "C:\\WORKS\\MPT\\Third_course\\ASP\\Sebezhko\\Sebezhko\\wwwroot\\js\\site.js",
