@@ -9,6 +9,9 @@ using System;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Globalization;
+using OfficeOpenXml;
+using OfficeOpenXml.Drawing.Chart;
 
 namespace Sebezhko.Controllers
 {
@@ -76,13 +79,13 @@ namespace Sebezhko.Controllers
 
         public IActionResult RemoveAllFromCart()
         {
-            int ID = Convert.ToInt32(Request.Query["ID"]);
-
             Cart cart = new Cart();
             if (HttpContext.Session.Keys.Contains("Cart"))
+            {
                 cart = JsonSerializer.Deserialize<Cart>(HttpContext.Session.GetString("Cart"));
-            cart.CartLines.RemoveAll(item => item.ID == ID);
-            HttpContext.Session.SetString("Cart", JsonSerializer.Serialize(cart));
+                cart.CartLines.Clear(); // Clear the entire list
+                HttpContext.Session.SetString("Cart", JsonSerializer.Serialize(cart));
+            }
 
             return Redirect("~/Home/Cart");
         }
@@ -96,6 +99,54 @@ namespace Sebezhko.Controllers
                 cart = JsonSerializer.Deserialize<Cart>(HttpContext.Session.GetString("Cart"));
 
             return View(cart);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateOrderCart()
+        {
+            Cart cart = new Cart();
+
+            if (HttpContext.Session.Keys.Contains("Cart"))
+                cart = JsonSerializer.Deserialize<Cart>(HttpContext.Session.GetString("Cart"));
+
+            List<Products> products = cart.CartLines.ToList();
+
+            string userIdString = HttpContext.Session.GetString("UserID");
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                return Redirect("~/Home/SignIn");
+            }
+
+            // Создаём новый заказ
+            Orders order = new Orders();
+            order.Date = DateTime.Now;
+            order.User_ID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
+            order.Sum = 0; // Пока 0, мы обновим ее после добавления деталей
+
+
+            await _appDbContext.Orders.AddAsync(order);
+            await _appDbContext.SaveChangesAsync(); // Сохраняем заказ чтобы получить его ID
+
+
+            // Идём по товарам в корзине и создаём детали заказа
+            foreach (Products product in products)
+            {
+                OrdersDetails orderDetail = new OrdersDetails();
+                orderDetail.Orders_ID = order.ID; // ID созданного заказа
+                orderDetail.Product_ID = product.ID; // ID товара
+
+                await _appDbContext.OrdersDetails.AddAsync(orderDetail);
+
+                order.Sum += product.Price; // Добавляем цену к общей сумме заказа
+            }
+
+            await _appDbContext.SaveChangesAsync(); // Сохраняем детали заказа и обновленную сумму заказа
+            
+
+            HttpContext.Session.Remove("Cart");
+            
+            return Redirect("~/Home/Catalog");
         }
 
 
@@ -201,11 +252,15 @@ namespace Sebezhko.Controllers
             Users person = await _appDbContext.Users.FirstOrDefaultAsync(p => p.Account_ID == user.ID);
             if (person == null)
             {
-                ViewBag.Name = user.Login;
+                HttpContext.Session.SetString("ProfileID", user.ID.ToString());
+                HttpContext.Session.SetString("AuthUser", user.ID.ToString());
             }
             else
             {
-                ViewBag.Name = person.Name;
+                ViewBag.User_ID = person.ID;
+                ViewBag.ProfileID = user.ID;
+                HttpContext.Session.SetString("ProfileID", user.ID.ToString());
+                HttpContext.Session.SetString("UserID", person.ID.ToString());
             }
 
 
@@ -216,6 +271,39 @@ namespace Sebezhko.Controllers
             }
             else if (role.Role == "manager")
             {
+                var orders = _appDbContext.Orders.ToList();
+                var ordersDetails = _appDbContext.OrdersDetails.ToList();
+
+                var ordersByDay = orders
+                    .GroupBy(o => o.Date.Date)
+                    .OrderBy(g => g.Key)
+                    .Select(g => new {
+                        Date = g.Key.ToString("yyyy-MM-dd"),
+                        TotalOrders = g.Count()
+
+                    })
+                    .ToList();
+
+                var prData = _appDbContext.Products.ToList();
+
+                var ordersByProducts = ordersDetails
+                    .GroupBy(o => o.Product_ID)
+                    .Select(g => new {
+                        Product_ID = g.Key,
+                        TotalOrders = g.Count()
+                    })
+                    .Join(prData,
+                        order => order.Product_ID,
+                        product => product.ID,
+                        (order, product) => new {
+                            BookTitle = product.Name_Album,
+                            TotalOrders = order.TotalOrders
+                        })
+                    .ToList();
+
+                ViewBag.OrdersByDay = ordersByDay;
+                ViewBag.OrdersByBook = ordersByProducts;
+
                 ViewBag.UserRole = "Менеджер";
                 return View("Manager");
             }
@@ -226,6 +314,84 @@ namespace Sebezhko.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult ExportToExcel()
+        {
+            var orders = _appDbContext.Orders.ToList();
+            var ordersDetails = _appDbContext.OrdersDetails.ToList();
+
+            var ordersByDay = orders
+                .GroupBy(o => o.Date.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new {
+                    Date = g.Key.ToString("yyyy-MM-dd"),
+                    TotalOrders = g.Count()
+
+                })
+                .ToList();
+
+            var prData = _appDbContext.Products.ToList();
+
+            var ordersByProducts = ordersDetails
+                .GroupBy(o => o.Product_ID)
+                .Select(g => new {
+                    Product_ID = g.Key,
+                    TotalOrders = g.Count()
+                })
+                .Join(prData,
+                    order => order.Product_ID,
+                    product => product.ID,
+                    (order, product) => new {
+                        BookTitle = product.Name_Album,
+                        TotalOrders = order.TotalOrders
+                    })
+                .ToList();
+
+            using (var workbook = new ExcelPackage())
+            {
+                var worksheetDays = workbook.Workbook.Worksheets.Add("Количество заказов по дням");
+                worksheetDays.Cells[1, 1].Value = "Date";
+                worksheetDays.Cells[1, 2].Value = "Total Orders";
+                // Заполняем данными
+                worksheetDays.Cells.LoadFromCollection(ordersByDay, false);
+                worksheetDays.Cells[1, 1, ordersByDay.Count + 1, 2].AutoFitColumns();
+
+                //Создаем диаграмму
+                var chartDays = worksheetDays.Drawings.AddChart("OrdersByDayChart", eChartType.ColumnClustered);
+                chartDays.SetPosition(ordersByDay.Count + 3, 0, 0, 0);
+                chartDays.SetSize(600, 300);
+                chartDays.Title.Text = "Количество заказов по дням";
+
+                // Добавляем данные к графику
+                var serieDays = chartDays.Series.Add(worksheetDays.Cells[1, 2, ordersByDay.Count + 1, 2],
+                    worksheetDays.Cells[1, 1, ordersByDay.Count + 1, 1]);
+                chartDays.Legend.Position = eLegendPosition.Bottom;
+
+                var worksheetProducts = workbook.Workbook.Worksheets.Add("Распределение продаж товаров");
+                worksheetProducts.Cells[1, 1].Value = "Vinyl Title";
+                worksheetProducts.Cells[1, 2].Value = "Total Orders";
+                // Заполняем данными
+                worksheetProducts.Cells.LoadFromCollection(ordersByProducts, false);
+                worksheetProducts.Cells[1, 1, ordersByProducts.Count + 1, 2].AutoFitColumns();
+
+                //Создаем диаграмму
+                var chartBooks = worksheetProducts.Drawings.AddChart("OrdersByProductChart", eChartType.Pie);
+                chartBooks.SetPosition(ordersByProducts.Count + 3, 0, 0, 0);
+                chartBooks.SetSize(600, 300);
+                chartBooks.Title.Text = "Распределение продаж товаров";
+
+                var serieBooks = chartBooks.Series.Add(worksheetProducts.Cells[1, 2, ordersByProducts.Count + 1, 2],
+                    worksheetProducts.Cells[1, 1, ordersByProducts.Count + 1, 1]);
+                chartBooks.Legend.Position = eLegendPosition.Bottom;
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    workbook.SaveAs(memoryStream);
+                    return File(memoryStream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "SalesAnalytics.xlsx");
+                }
+            }
+        }
     }
 
 }

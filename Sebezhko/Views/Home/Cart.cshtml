@@ -12,27 +12,30 @@
         }
         else
         {
-            <div class="container">
-                <h2>Каталог виниловых пластинок в корзине</h2>
+            <form asp-action="CreateOrderCart" method="post">
+                <div class="container">
+                    <h2>Каталог виниловых пластинок в корзине</h2>
 
-                <div class="row">
-                    @for (int i = 0; i < Model.CartLines.Count; i++)
-                    {
-                        <div class="col-md-4 links__item menu_main">
-                            <div class="card">
-                                <img src="@Url.Content(@Model.CartLines[i].Path_Image)" alt="@Model.CartLines[i].Name_Album" />
-                                <h5>@Model.CartLines[i].Name_Album</h5>
-                                <p>Цена: @Model.CartLines[i].Price.ToString("C")</p>
-                                <a href="/Home/RemoveFromCart?Number=@i" class="btn btn-danger">Убрать из корзины</a>
+                    <div class="row">
+                        @for (int i = 0; i < Model.CartLines.Count; i++)
+                        {
+                            <div class="col-md-4 links__item menu_main">
+                                <div class="card">
+                                    <img src="@Url.Content(@Model.CartLines[i].Path_Image)" alt="@Model.CartLines[i].Name_Album" />
+                                    <h5>@Model.CartLines[i].Name_Album</h5>
+                                    <p>Цена: @Model.CartLines[i].Price.ToString("C")</p>
+                                    <a href="/Home/RemoveFromCart?Number=@i" class="btn btn-danger">Убрать из корзины</a>
+                                </div>
                             </div>
-                        </div>
-                    }
-                </div>
+                        }
+                    </div>
 
-                <div class="checkout-button">
-                    <a href="~/Home/Cart" class="btn btn-success btn-lg">Оформить заказ</a>
+                    <div class="checkout-button">
+                        <input type="submit" class="btn btn-success btn-lg"  value="Оформить заказ" />
+                        <a href="~/Home/RemoveAllFromCart" class="btn btn-danger btn-lg">Очистить корзину</a>
+                    </div>
                 </div>
-            </div>
+            </form>
         }
     </div>
 </div>
