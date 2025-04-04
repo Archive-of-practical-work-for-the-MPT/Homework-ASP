@@ -1,0 +1,212 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 120px;
+    background-color: #f0f0f0;
+    background-image: url(../media/sandships.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.catalog-body {
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 50px;
+    background-image: none;
+    background-color: #dadada;
+}
+
+
+footer {
+    padding: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрирование текста */
+    border-top: 1px solid #e7e7e7; /* Линия сверху */
+    background-color: #2f251f; /*  #212020; */
+    color: #606060;
+    font-size: 16px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    position: fixed; /* Фиксированное положение */
+    left: 0; /* Привязка к левому краю */
+    bottom: 0; /* Привязка к нижнему краю */
+    width: 100%; /* Ширина 100% */
+}
+
+    footer a {
+        color: #ffffff;
+        text-decoration: none;
+        color: #979696;
+        transition: color 0.3s;
+    }
+
+        footer a:hover {
+            color: #ffcc00;
+        }
+
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .card h2 {
+        font-size: 1.5em;
+    }
+
+    .card p {
+        font-size: 1em;
+        color: #555;
+    }
+
+.logo {
+    height: 50px;
+    padding-right: 20px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    padding: 20px;
+}
+
+    .empty-cart-message p {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .empty-cart-message a {
+        margin-top: 10px;
+    }
+
+.checkout-button {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+    .checkout-button .btn-lg {
+        padding: 15px 30px;
+    }
+
+
+
+
+/* Стили для страницы продукта */
+.product-detail-body {
+    background-color: #ffffff; /* Фон для страницы продукта */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.product-image {
+    max-width: 300px; /* Максимальная ширина изображения */
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.product-info {
+    flex: 1; /* Занимает оставшееся пространство */
+}
+
+    .product-info p {
+        margin: 10px 0;
+        font-size: 1.2em; /* Увеличенный размер шрифта для информации о продукте */
+    }
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: lightsalmon; /* Цвет кнопки */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #ff7f50; /* Цвет кнопки при наведении */
+    }
+
+.reviews {
+    margin-top: 20px;
+}
+
+    .reviews h3 {
+        font-size: 1.5em; /* Размер заголовка раздела с отзывами */
+        margin-bottom: 10px;
+    }
+
+.review {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+    .review p {
+        margin: 5px 0;
+    }
+
+textarea,
+input[type="number"] {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 80px; /* Высота текстового поля для отзыва */
+    resize: none; /* Отключение изменения размера */
+}
+
+form {
+    margin-top: 20px; /* Отступ сверху для формы добавления отзыва */
+}

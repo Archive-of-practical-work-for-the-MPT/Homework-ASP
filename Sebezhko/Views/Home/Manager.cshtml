@@ -1,0 +1,100 @@
+﻿<div>
+    Здравствуйте, @ViewBag.Name. Ваша роль: @ViewBag.UserRole.
+</div>
+<div style="display:inline">
+    <a class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;margin: 10px;">Редактировать данные о заказах</a>
+    <a class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;margin: 10px;">Редактировать музыкантов</a>
+    <a class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;margin: 10px;">Редактировать данные о пластинках</a>
+    <a class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;margin: 10px;">Редактировать жанры</a>
+</div>
+
+
+<div margin top: 100px>
+    <a class="btn btn-primary" style="background-color:lightcoral; border-color:lightcoral; margin: 10px" href="@Url.Action("Logout")">Выход</a>
+</div>
+
+
+@using System.Text.Json;
+@{
+    var ordersByDay = ViewBag.OrdersByDay;
+    var ordersByBook = ViewBag.OrdersByBook;
+
+    var ordersByDayJson = JsonSerializer.Serialize(ordersByDay);
+    var ordersByBookJson = JsonSerializer.Serialize(ordersByBook);
+}
+
+<div>
+    <a href="@Url.Action("ExportToExcel", "Home")" class="btn btn-success">Экспортировать в Excel</a>
+</div>
+
+<h2>Аналитика заказов</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Количество заказов по дням</h3>
+        <canvas id="ordersChart"></canvas>
+    </div>
+    <div class="col-md-6">
+        <h3>Распределение продаж товаров</h3>
+        <canvas id="bookChart"></canvas>
+    </div>
+</div>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ordersByDayData = @Html.Raw(ordersByDayJson);
+        var ordersByBookData = @Html.Raw(ordersByBookJson);
+
+        console.log(ordersByDayData);
+        console.log(ordersByBookData);
+
+        // График по дням.
+        var ordersChartCtx = document.getElementById('ordersChart').getContext('2d');
+        var ordersChart = new Chart(ordersChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ordersByDayData.map(item => item.Date),
+                datasets: [{
+                    label: 'Количество заказов',
+                    data: ordersByDayData.map(item => item.TotalOrders), 
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Круговая диаграмма.
+        var bookChartCtx = document.getElementById('bookChart').getContext('2d');
+        var bookChart = new Chart(bookChartCtx, {
+            type: 'pie',
+            data: {
+                labels: ordersByBookData.map(item => item.BookTitle),  
+                datasets: [{
+                    label: 'Количество заказов',
+                    data: ordersByBookData.map(item => item.TotalOrders),  
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+}

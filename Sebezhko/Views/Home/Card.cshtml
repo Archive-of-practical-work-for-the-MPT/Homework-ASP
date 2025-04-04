@@ -1,0 +1,45 @@
+﻿@model Products
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body class="product-detail-body">
+
+    <div class="container">
+        <div class="product-details">
+            <img src="@Url.Content(Model.Path_Image)" alt="@Model.Name_Album" class="product-image" />
+            <div class="product-info">
+                <p><strong>Цена:</strong> @Model.Price.ToString("C")</p>
+                <p><strong>Количество:</strong> @Model.Count</p>
+                <p><strong>RPM:</strong> @Model.RPM</p>
+                <p><strong>Цвет:</strong> @Model.Color</p>
+                <p><strong>Год выпуска:</strong> @Model.Year</p>
+                @await Component.InvokeAsync("AverageRating", new { productId = @Model.ID })
+                <a href="/Home/AddToCart?ID=@Model.ID" class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;">В корзину</a>
+            </div>
+        </div>
+        <div class="reviews">
+            <h4>Добавить отзыв</h4>
+            <form method="post" action="/Home/AddReview?productId=@Model.ID">
+                <textarea name="comment" placeholder="Ваш отзыв" required></textarea>
+                <input type="number" name="rating" min="1" max="5" placeholder="Рейтинг (1-5)" required />
+                <button type="submit" class="btn btn-primary" style="background-color:lightsalmon; border-color:lightsalmon;">Отправить</button>
+            </form>
+            <h3>Отзывы</h3>
+            @foreach (var review in Model.Reviews)
+            {
+                <div class="review">
+                    <p><strong>@review.User?.Name Аноним:</strong> @review.Comment</p>
+                    <p><strong>Рейтинг:</strong> @review.Rating</p>
+                    <p><em>Дата: @review.CreatedAt.ToString("dd.MM.yyyy")</em></p>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

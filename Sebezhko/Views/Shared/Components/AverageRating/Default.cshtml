@@ -1,0 +1,17 @@
+﻿@model double
+
+<div class="average-rating">
+    <span>
+        @for (int i = 0; i < 5; i++)
+        {
+            if (i < Model)
+            {
+                <span>⭐</span> <!-- Полная звезда -->
+            }
+            else
+            {
+                <span>☆</span> <!-- Пустая звезда -->
+            }
+        }
+    </span>
+</div>

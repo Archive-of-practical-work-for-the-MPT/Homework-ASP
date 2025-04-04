@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Accounts>
+
+@{
+    ViewData["Title"] = "Silk Vinyl - Главная страница";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <header>
+        <h1>Silk Vinyl</h1>
+        <p>Ваш магазин виниловых пластинок</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Классические альбомы</h2>
+            <p>Откройте для себя лучшие классические альбомы на виниле.</p>
+        </div>
+        <div class="card">
+            <h2>Новинки</h2>
+            <p>Следите за новыми релизами и специальными изданиями.</p>
+        </div>
+        <div class="card">
+            <h2>Ретро коллекция</h2>
+            <p>Вернитесь в прошлое с нашей ретро коллекцией виниловых пластинок.</p>
+        </div>
+    </div>
+</body>
+</html>

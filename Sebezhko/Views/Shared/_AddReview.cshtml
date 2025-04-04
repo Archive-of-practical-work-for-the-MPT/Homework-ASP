@@ -1,0 +1,27 @@
+﻿@model Review
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-action="AddReview" method="post">
+        <div class="form-group">
+            <label for="Rating">Рейтинг</label>
+            <select asp-for="Rating" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Comment">Комментарий</label>
+            <textarea asp-for="Comment" class="form-control"></textarea>
+        </div>
+        <input type="hidden" asp-for="Product_ID" value="@Model.Product_ID" />
+        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+    </form>
+}
+else
+{
+    <p>Чтобы оставить отзыв, пожалуйста, <a href="/Home/SignIn">войдите</a>.</p>
+}

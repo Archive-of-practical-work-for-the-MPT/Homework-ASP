@@ -1,0 +1,20 @@
+﻿@model Sebezhko.Models.LoginModel
+
+<form asp-antiforgery="true" asp-action="SignIn" asp-controller="Home" autocomplete="off" class="row" style="margin: 5px">
+    <fieldset>
+        <div class="form-group col-10 cd-2">
+            <label for="exampleInputEmail1" class="form-label mb-4">Логин </label>
+            <input asp-for="@Model.Login" name="Login" type="text" class="form-control" id="login" aria-describedby="loginHelp" placeholder="Введите логин">
+            <span asp-validation-for="Login"></span>
+        </div>
+        <div class="form-group col-10 cd-2">
+            <label for="exampleInputPassword1" class="form-label mb-4">Пароль</label>
+            <input asp-for="@Model.Password" name="Password" type="password" class="form-control" id="password" placeholder="**************">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div style="display: inline-flex">
+            <button type="submit" class="btn btn-outline-info" style="margin-top: 20px">Войти</button>
+            <a style="margin-top: 20px" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignUp">Зарегистрироваться</a>
+        </div>
+    </fieldset>
+</form>

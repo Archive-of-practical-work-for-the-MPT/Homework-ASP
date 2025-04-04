@@ -1,0 +1,41 @@
+﻿<head>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<div class="links">
+    <div class="links__item menu_main">
+        @if (Model.CartLines.Count == 0)
+        {
+            <div class="empty-cart-message">
+                <h2>Каталог виниловых пластинок в корзине - Товаров в корзине нет</h2>
+            </div>
+        }
+        else
+        {
+            <form asp-action="CreateOrderCart" method="post">
+                <div class="container">
+                    <h2>Каталог виниловых пластинок в корзине</h2>
+
+                    <div class="row">
+                        @for (int i = 0; i < Model.CartLines.Count; i++)
+                        {
+                            <div class="col-md-4 links__item menu_main">
+                                <div class="card">
+                                    <img src="@Url.Content(@Model.CartLines[i].Path_Image)" alt="@Model.CartLines[i].Name_Album" />
+                                    <h5>@Model.CartLines[i].Name_Album</h5>
+                                    <p>Цена: @Model.CartLines[i].Price.ToString("C")</p>
+                                    <a href="/Home/RemoveFromCart?Number=@i" class="btn btn-danger">Убрать из корзины</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="checkout-button">
+                        <input type="submit" class="btn btn-success btn-lg"  value="Оформить заказ" />
+                        <a href="~/Home/RemoveAllFromCart" class="btn btn-danger btn-lg">Очистить корзину</a>
+                    </div>
+                </div>
+            </form>
+        }
+    </div>
+</div>
