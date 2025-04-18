@@ -1,0 +1,78 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Rating stars styling */
+.rating {
+  display: inline-block;
+}
+
+.rating .fas.fa-star,
+.rating .fas.fa-star-half-alt,
+.rating .far.fa-star {
+  color: #ffc107;
+}
+
+/* Card hover effect */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Button styling */
+.btn-outline-warning:hover {
+  background-color: #FF8C00 !important;
+  color: white !important;
+}
+
+/* Hero section image */
+.hero-section img {
+  object-fit: cover;
+}
+
+/* Footer positioning */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+/* Carousel styling */
+.carousel-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Add to cart button animations */
+.add-to-cart-btn {
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,39 @@
+@model ApiVynil.Models.VinylReview
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="mb-0">
+                @{
+                    var userName = "Пользователь";
+                    if (ViewBag.UserData != null && ViewBag.UserData.ContainsKey(Model.UserId))
+                    {
+                        userName = ViewBag.UserData[Model.UserId];
+                    }
+                }
+                @userName
+            </h5>
+            <div class="text-muted small">
+                @(Model.CreatedAt?.ToString("dd.MM.yyyy") ?? "Без даты")
+            </div>
+        </div>
+        
+        <div class="mb-2">
+            @for (int i = 1; i <= 5; i++)
+            {
+                if (i <= Model.Rating)
+                {
+                    <i class="fas fa-star text-warning"></i>
+                }
+                else
+                {
+                    <i class="far fa-star text-warning"></i>
+                }
+            }
+        </div>
+        
+        <p class="card-text">
+            @(string.IsNullOrEmpty(Model.ReviewText) ? "Без комментария" : Model.ReviewText)
+        </p>
+    </div>
+</div> 

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#2c3e50"/>
+  
+  <!-- Stage -->
+  <rect x="50" y="250" width="300" height="100" fill="#34495e"/>
+  
+  <!-- Piano -->
+  <rect x="100" y="270" width="80" height="40" fill="#1a1a1a"/>
+  <rect x="100" y="270" width="80" height="10" fill="#ffffff"/>
+  
+  <!-- Saxophone -->
+  <path d="M240,280 C250,260 270,250 280,270 C285,280 290,290 270,310" fill="none" stroke="#ffd700" stroke-width="5"/>
+  <ellipse cx="270" cy="310" rx="10" ry="5" fill="#ffd700"/>
+  
+  <!-- Vinyl record -->
+  <circle cx="200" cy="150" r="100" fill="#0f0f0f"/>
+  <circle cx="200" cy="150" r="95" fill="#080808"/>
+  <circle cx="200" cy="150" r="30" fill="#0f0f0f"/>
+  <circle cx="200" cy="150" r="5" fill="#080808"/>
+  
+  <!-- Music notes -->
+  <g fill="#ffd700">
+    <path d="M80,100 L85,80 L90,90 L95,70 L90,100 Z"/>
+    <path d="M260,70 L265,50 L270,60 L275,40 L270,70 Z"/>
+    <path d="M160,40 L165,20 L170,30 L175,10 L170,40 Z"/>
+    <path d="M310,120 L315,100 L320,110 L325,90 L320,120 Z"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="380" font-family="Arial" font-size="20" fill="#fff" text-anchor="middle">JAZZ NIGHT</text>
+  <text x="200" y="50" font-family="Arial" font-size="16" fill="#ffd700" text-anchor="middle">CLASSIC JAZZ ON VINYL</text>
+</svg> 

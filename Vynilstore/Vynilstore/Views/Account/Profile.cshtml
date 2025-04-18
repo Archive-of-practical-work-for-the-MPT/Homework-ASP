@@ -1,0 +1,93 @@
+@model Vynilstore.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Профиль пользователя";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Профиль пользователя</h2>
+                </div>
+                <div class="card-body">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Логин:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.Login
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Имя:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.FirstName
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Фамилия:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.LastName
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Дата рождения:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @(Model.BirthDate.HasValue ? Model.BirthDate.Value.ToString("dd.MM.yyyy") : "Не указано")
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Email:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.Email
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Телефон:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @(string.IsNullOrEmpty(Model.PhoneNumber) ? "Не указано" : Model.PhoneNumber)
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-md-end">
+                            <strong>Роль:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.RoleName
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Вернуться на главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

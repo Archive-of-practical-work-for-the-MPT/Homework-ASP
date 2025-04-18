@@ -1,0 +1,131 @@
+@using ApiVynil.Models
+@model ApiVynil.Models.Vinyl
+
+@{
+    ViewData["Title"] = Model.Title;
+    
+    string FixImagePath(string path)
+    {
+        if (string.IsNullOrEmpty(path))
+            return "/images/no-image.jpg";
+            
+        if (path.StartsWith("http"))
+            return path;
+            
+        // Remove tilde if present
+        if (path.StartsWith("~"))
+            path = path.Substring(1);
+            
+        // Add leading / if not present
+        if (!path.StartsWith("/"))
+            path = "/" + path;
+            
+        return path;
+    }
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@FixImagePath(Model.CoverImagePath)" 
+                 alt="@Model.Title" class="img-fluid rounded shadow" />
+        </div>
+        <div class="col-md-8">
+            <h1>@Model.Title</h1>
+            <h3 class="text-muted">@ViewBag.ArtistName</h3>
+            
+            <div class="mt-3">
+                @await Component.InvokeAsync("AverageRating", new { vinylId = Model.Id })
+            </div>
+            
+            <div class="mt-4">
+                <h5>Информация о пластинке:</h5>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td>Жанр:</td>
+                            <td>@ViewBag.GenreName</td>
+                        </tr>
+                        <tr>
+                            <td>Лейбл:</td>
+                            <td>@ViewBag.LabelName</td>
+                        </tr>
+                        <tr>
+                            <td>Год выпуска:</td>
+                            <td>@(Model.ReleaseYear)</td>
+                        </tr>
+                        <tr>
+                            <td>Диаметр:</td>
+                            <td>@Model.Diameter см</td>
+                        </tr>
+                        <tr>
+                            <td>Скорость:</td>
+                            <td>@Model.Rpm об/мин</td>
+                        </tr>
+                        <tr>
+                            <td>Состояние:</td>
+                            <td>@(string.IsNullOrEmpty(Model.Condition) ? "Не указано" : Model.Condition)</td>
+                        </tr>
+                        <tr>
+                            <td>Вес:</td>
+                            <td>@(Model.Weight.HasValue ? $"{Model.Weight} г" : "Не указан")</td>
+                        </tr>
+                        <tr>
+                            <td>В наличии:</td>
+                            <td>
+                                @if (Model.QuantityInStock > 0)
+                                {
+                                    <span class="text-success">@Model.QuantityInStock шт.</span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger">Нет в наличии</span>
+                                }
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-3">
+                <h4 class="text-danger mb-3">@Model.Price.ToString("C")</h4>
+                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                    <input type="hidden" name="vinylId" value="@Model.Id" />
+                    <div class="input-group mb-3" style="max-width: 300px;">
+                        <input type="number" name="quantity" value="1" min="1" max="10" class="form-control" />
+                        <button class="btn btn-primary" type="submit" @(Model.QuantityInStock == 0 ? "disabled" : "")>
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-5">
+        <h3>Отзывы</h3>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="mb-4">
+                <partial name="_ReviewForm" model="@Model.Id" />
+            </div>
+        }
+        
+        <div class="reviews-list">
+            @if (ViewBag.Reviews != null && ((List<VinylReview>)ViewBag.Reviews).Count > 0)
+            {
+                @foreach (var review in (List<VinylReview>)ViewBag.Reviews)
+                {
+                    @Html.DisplayFor(m => review)
+                }
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    Пока нет отзывов. Будьте первым, кто оставит отзыв!
+                </div>
+            }
+        </div>
+    </div>
+</div> 

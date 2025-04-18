@@ -1,0 +1,57 @@
+@model Tuple<double, int>
+
+<div class="average-rating">
+    <div class="stars mb-1">
+        @{
+            double avgRating = Model.Item1;
+            int reviewsCount = Model.Item2;
+            
+            for (int i = 1; i <= 5; i++)
+            {
+                if (i <= Math.Floor(avgRating))
+                {
+                    <i class="fas fa-star text-warning"></i>
+                }
+                else if (i - avgRating > 0 && i - avgRating < 1)
+                {
+                    <i class="fas fa-star-half-alt text-warning"></i>
+                }
+                else
+                {
+                    <i class="far fa-star text-warning"></i>
+                }
+            }
+        }
+        @if (reviewsCount > 0)
+        {
+            <span class="ms-2">@avgRating.ToString("0.0")</span>
+            <span class="text-muted ms-2">(@reviewsCount @(GetReviewCountText(reviewsCount)))</span>
+        }
+        else
+        {
+            <span class="text-muted ms-2">Нет отзывов</span>
+        }
+    </div>
+</div>
+
+@functions {
+    string GetReviewCountText(int count)
+    {
+        var lastDigit = count % 10;
+        var lastTwoDigits = count % 100;
+        
+        if (lastDigit == 1 && lastTwoDigits != 11)
+        {
+            return "отзыв";
+        }
+        else if ((lastDigit == 2 || lastDigit == 3 || lastDigit == 4) && 
+                 (lastTwoDigits != 12 && lastTwoDigits != 13 && lastTwoDigits != 14))
+        {
+            return "отзыва";
+        }
+        else
+        {
+            return "отзывов";
+        }
+    }
+}

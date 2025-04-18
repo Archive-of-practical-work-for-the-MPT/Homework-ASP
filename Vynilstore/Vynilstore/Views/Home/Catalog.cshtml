@@ -1,0 +1,277 @@
+@using ApiVynil.Models
+
+@{
+    ViewData["Title"] = "Каталог";
+    var vinyls = ViewBag.Vinyls as List<Vinyl> ?? new List<Vinyl>();
+    var artists = ViewBag.Artists as List<Artist> ?? new List<Artist>();
+    var allReviews = ViewBag.AllReviews as List<VinylReview> ?? new List<VinylReview>();
+
+    // Функция для получения имени исполнителя по ID
+    string GetArtistName(int artistId)
+    {
+        var artist = artists.FirstOrDefault(a => a.Id == artistId);
+        if (artist != null)
+        {
+            return artist.Name;
+        }
+        return $"Исполнитель #{artistId}";
+    }
+
+    // Функция для получения отзывов для конкретной пластинки
+    List<VinylReview> GetVinylReviews(int vinylId)
+    {
+        return allReviews.Where(r => r.VinylId == vinylId).ToList();
+    }
+
+    // Функция для корректировки пути к изображению
+    string FixImagePath(string path)
+    {
+        if (string.IsNullOrEmpty(path))
+            return "/images/no-image.jpg";
+        
+        if (path.StartsWith("http"))
+            return path;
+
+        // Удаляем тильду в начале пути, если она есть
+        if (path.StartsWith("~"))
+            path = path.Substring(1);
+            
+        // Проверяем начинается ли путь со слэша
+        if (!path.StartsWith("/"))
+            path = "/" + path;
+            
+        return path;
+    }
+}
+
+<!-- Hero Section -->
+<section class="bg-dark py-4 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="text-light mb-3">Каталог пластинок</h1>
+                <p class="text-light mb-0">Найдите свой идеальный звук в нашей коллекции виниловых пластинок</p>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Поиск пластинок..." id="searchInput">
+                    <button class="btn btn-primary" type="button" id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Фильтры -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-dark active" data-filter="all">Все</button>
+                <button class="btn btn-outline-dark" data-filter="rock">Рок</button>
+                <button class="btn btn-outline-dark" data-filter="jazz">Джаз</button>
+                <button class="btn btn-outline-dark" data-filter="electronic">Электроника</button>
+                <button class="btn btn-outline-dark" data-filter="classic">Классика</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <select class="form-select" id="sortOrder">
+                <option selected value="default">Сортировка по умолчанию</option>
+                <option value="price-asc">Цена: низкая - высокая</option>
+                <option value="price-desc">Цена: высокая - низкая</option>
+                <option value="title-asc">Название: А-Я</option>
+                <option value="rating-desc">По рейтингу</option>
+                <option value="year-desc">По году выпуска</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Каталог пластинок -->
+    <div class="row" id="vinylsList">
+        @if (vinyls != null && vinyls.Any())
+        {
+            @foreach (var vinyl in vinyls)
+            {
+                var vinylReviews = GetVinylReviews(vinyl.Id);
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="@FixImagePath(vinyl.CoverImagePath)" class="card-img-top album-cover" alt="@vinyl.Title" style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75">
+                                <h6 class="card-title text-light mb-0">@vinyl.Title</h6>
+                                <p class="card-text text-light mb-0">@GetArtistName(vinyl.ArtistId)</p>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                @if (vinyl.ReleaseYear.HasValue)
+                                {
+                                    <p class="card-text"><small class="text-muted">Год выпуска: @vinyl.ReleaseYear</small></p>
+                                }
+                                <div class="mb-2">
+                                    @await Component.InvokeAsync("AverageRating", new { vinylId = vinyl.Id })
+                                </div>
+                                <p class="text-primary fw-bold mb-3">@vinyl.Price.ToString("C0")</p>
+                            </div>
+                            <div class="d-flex">
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@vinyl.Id" class="btn btn-outline-primary btn-sm flex-grow-1 me-2">Подробнее</a>
+                                <button class="btn btn-primary btn-sm add-to-cart-btn flex-grow-1"
+                                        data-vinyl-id="@vinyl.Id"
+                                        data-vinyl-title="@vinyl.Title">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center py-5">
+                <h3 class="text-muted">В данный момент нет доступных пластинок</h3>
+                <p class="mb-4">Пожалуйста, загляните позже</p>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Вернуться на главную</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Добавление в корзину
+        $(document).ready(function() {
+            $('.add-to-cart-btn').click(function() {
+                const vinylId = $(this).data('vinyl-id');
+                const vinylTitle = $(this).data('vinyl-title');
+                
+                // Анимация кнопки
+                const $button = $(this);
+                $button.prop('disabled', true);
+                $button.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                
+                // AJAX запрос к CartController
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    type: 'POST',
+                    data: { vinylId: vinylId, quantity: 1 },
+                    dataType: 'json',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $button.html('<i class="fas fa-check"></i>');
+                            
+                            // Обновляем счетчик корзины, если он есть
+                            if ($('#cart-count').length) {
+                                $('#cart-count').text(response.totalItems);
+                            }
+                            
+                            // Показываем уведомление
+                            alert(`Пластинка "${vinylTitle}" добавлена в корзину`);
+                        } else {
+                            $button.html('<i class="fas fa-exclamation"></i>');
+                            alert(response.message);
+                        }
+                        
+                        setTimeout(() => {
+                            $button.html('<i class="fas fa-shopping-cart"></i>');
+                            $button.prop('disabled', false);
+                        }, 2000);
+                    },
+                    error: function() {
+                        $button.html('<i class="fas fa-exclamation"></i>');
+                        alert('Произошла ошибка при добавлении пластинки в корзину');
+                        
+                        setTimeout(() => {
+                            $button.html('<i class="fas fa-shopping-cart"></i>');
+                            $button.prop('disabled', false);
+                        }, 2000);
+                    }
+                });
+            });
+            
+            // Функция поиска пластинок
+            $('#searchButton').click(function() {
+                const searchText = $('#searchInput').val().toLowerCase();
+                if (searchText.trim() === '') {
+                    $('.col-md-3').show();
+                    return;
+                }
+                
+                $('.col-md-3').each(function() {
+                    const vinylTitle = $(this).find('.card-title').text().toLowerCase();
+                    const artistName = $(this).find('.position-absolute .card-text').text().toLowerCase();
+                    
+                    if (vinylTitle.includes(searchText) || artistName.includes(searchText)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+            
+            // Фильтрация по категориям
+            $('.btn-group .btn').click(function() {
+                $('.btn-group .btn').removeClass('active');
+                $(this).addClass('active');
+                
+                const filter = $(this).data('filter');
+                if (filter === 'all') {
+                    $('.col-md-3').show();
+                } else {
+                    // В реальном приложении здесь должна быть логика фильтрации по жанрам
+                    // Для демонстрации просто показываем случайные карточки
+                    $('.col-md-3').each(function(index) {
+                        const shouldShow = filter === 'rock' ? index % 2 === 0 : 
+                                        filter === 'jazz' ? index % 3 === 0 :
+                                        filter === 'electronic' ? index % 5 === 0 : 
+                                        filter === 'classic' ? index % 7 === 0 : true;
+                        $(this).toggle(shouldShow);
+                    });
+                }
+            });
+            
+            // Функция сортировки пластинок (сохраняем прежнюю логику)
+            $('#sortOrder').change(function() {
+                const sortValue = $(this).val();
+                const vinylItems = $('.col-md-3').get();
+                
+                vinylItems.sort(function(a, b) {
+                    if (sortValue === 'price-asc') {
+                        const priceA = parseFloat($(a).find('.text-primary').text().replace(/[^\d.-]/g, ''));
+                        const priceB = parseFloat($(b).find('.text-primary').text().replace(/[^\d.-]/g, ''));
+                        return priceA - priceB;
+                    } else if (sortValue === 'price-desc') {
+                        const priceA = parseFloat($(a).find('.text-primary').text().replace(/[^\d.-]/g, ''));
+                        const priceB = parseFloat($(b).find('.text-primary').text().replace(/[^\d.-]/g, ''));
+                        return priceB - priceA;
+                    } else if (sortValue === 'title-asc') {
+                        const titleA = $(a).find('.card-title').text();
+                        const titleB = $(b).find('.card-title').text();
+                        return titleA.localeCompare(titleB);
+                    } else if (sortValue === 'rating-desc') {
+                        const ratingA = $(a).find('.average-rating .fas.fa-star, .average-rating .fas.fa-star-half-alt').length;
+                        const ratingB = $(b).find('.average-rating .fas.fa-star, .average-rating .fas.fa-star-half-alt').length;
+                        return ratingB - ratingA;
+                    } else if (sortValue === 'year-desc') {
+                        const yearTextA = $(a).find('small.text-muted').text();
+                        const yearTextB = $(b).find('small.text-muted').text();
+                        const yearA = yearTextA ? parseInt(yearTextA.replace(/\D/g, '')) : 0;
+                        const yearB = yearTextB ? parseInt(yearTextB.replace(/\D/g, '')) : 0;
+                        return yearB - yearA;
+                    }
+                    return 0;
+                });
+                
+                const vinylList = $('#vinylsList');
+                $.each(vinylItems, function(i, item) {
+                    vinylList.append(item);
+                });
+            });
+        });
+    </script>
+} 

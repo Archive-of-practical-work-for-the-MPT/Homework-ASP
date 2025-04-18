@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <circle cx="150" cy="150" r="145" fill="#141414"/>
+  <circle cx="150" cy="150" r="140" fill="#1d1d1d"/>
+  <circle cx="150" cy="150" r="120" fill="#000"/>
+  <circle cx="150" cy="150" r="40" fill="#1d1d1d"/>
+  <circle cx="150" cy="150" r="7" fill="#141414"/>
+  <text x="150" y="160" font-family="Arial" font-size="9" fill="#fff" text-anchor="middle">Vinyl Record</text>
+  <g fill="none" stroke="#2d2d2d" stroke-width="0.3">
+    <circle cx="150" cy="150" r="130"/>
+    <circle cx="150" cy="150" r="125"/>
+    <circle cx="150" cy="150" r="120"/>
+    <circle cx="150" cy="150" r="115"/>
+    <circle cx="150" cy="150" r="110"/>
+    <circle cx="150" cy="150" r="105"/>
+    <circle cx="150" cy="150" r="100"/>
+    <circle cx="150" cy="150" r="95"/>
+    <circle cx="150" cy="150" r="90"/>
+    <circle cx="150" cy="150" r="85"/>
+    <circle cx="150" cy="150" r="80"/>
+    <circle cx="150" cy="150" r="75"/>
+    <circle cx="150" cy="150" r="70"/>
+    <circle cx="150" cy="150" r="65"/>
+    <circle cx="150" cy="150" r="60"/>
+    <circle cx="150" cy="150" r="55"/>
+    <circle cx="150" cy="150" r="50"/>
+    <circle cx="150" cy="150" r="45"/>
+  </g>
+</svg> 

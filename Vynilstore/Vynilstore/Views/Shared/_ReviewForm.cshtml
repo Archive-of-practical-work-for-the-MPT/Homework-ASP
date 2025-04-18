@@ -1,0 +1,40 @@
+@model int
+
+<div class="card mb-4">
+    <div class="card-header bg-light">
+        <h5 class="mb-0">Оставить отзыв</h5>
+    </div>
+    <div class="card-body">
+        <form asp-controller="Home" asp-action="AddReview" method="post">
+            <input type="hidden" name="VinylId" value="@Model" />
+            
+            <div class="mb-3">
+                <label class="form-label">Ваша оценка:</label>
+                <div class="rating">
+                    <div class="btn-group" role="group">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <input type="radio" class="btn-check" name="Rating" id="rating-@i" value="@i" required>
+                            <label class="btn btn-outline-warning" for="rating-@i">
+                                <i class="fas fa-star"></i>
+                                <span class="d-none d-sm-inline"> @i</span>
+                            </label>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Текст отзыва:</label>
+                <textarea class="form-control" name="ReviewText" rows="3" 
+                          placeholder="Поделитесь своим мнением о пластинке..."></textarea>
+            </div>
+            
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Отправить отзыв
+                </button>
+            </div>
+        </form>
+    </div>
+</div> 
