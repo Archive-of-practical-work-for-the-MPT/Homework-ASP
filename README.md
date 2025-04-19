@@ -11,15 +11,15 @@
 ## Демонстрация
 
 <p align="center">
-      <img src="https://github.com/user-attachments/assets/99a31040-875e-4b08-8bfa-cd009066258d" alt="Каталог" width="700">
+      <img src="https://github.com/user-attachments/assets/99a31040-875e-4b08-8bfa-cd009066258d" alt="Авторизация" width="700">
 </p>
 
 <p align="center">
-      <img src="https://github.com/user-attachments/assets/20c1cc1e-1f89-441c-9351-16f17bdb4564" alt="Корзина" width="700">
+      <img src="https://github.com/user-attachments/assets/20c1cc1e-1f89-441c-9351-16f17bdb4564" alt="Страница" width="700">
 </p>
 
 <p align="center">
-      <img src="https://github.com/user-attachments/assets/9f4fdf23-68f0-4c40-b2a9-57630ed71d5a" alt="Главная страница" width="700">
+      <img src="https://github.com/user-attachments/assets/9f4fdf23-68f0-4c40-b2a9-57630ed71d5a" alt="Корзина" width="700">
 </p>
 
 ## Вывод
