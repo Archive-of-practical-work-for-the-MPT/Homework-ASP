@@ -7,7 +7,7 @@
 * [Практическая работа 3-4](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/cart) - Регистрации, аутентификации и авторизации / Корзина
 * [Практическая работа 5-6](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/pomoyka) - Построение графиков / Экспорт документов
 * [Практическая работа 7](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/review) - Отзывы
-* [Практическая работа 8](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/commits/api) - Работа с токенами
+* [Практическая работа 8](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/api) - Работа с токенами
 
 # Практическая работа 2 - Каталог
 
