@@ -4,11 +4,9 @@
 Навигация:
 
 * [Практическая работа 1-2](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP) - Верстка домашней страницы / Каталог
-* [Практическая работа 3]() - 
-* [Практическая работа 4](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/cart) - Корзина
-* [Практическая работа 5]() - 
-* [Практическая работа 6]() - 
-* [Практическая работа 7]() -
+* [Практическая работа 3-4](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/cart) - Регистрации, аутентификации и авторизации / Корзина
+* [Практическая работа 5-6](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/pomoyka) - Построение графиков / Экспорт документов
+* [Практическая работа 7](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/tree/review) - Отзывы
 * [Практическая работа 8](https://github.com/Archive-of-practical-work-for-the-MPT/Homework-ASP/commits/api) - Работа с токенами
 
 # Практическая работа 2 - Каталог
@@ -26,4 +24,4 @@
 </p>
 
 ## Вывод
-Была разработана стартовая страница магазина, а также была создана БД и с помощью нее была реалезована страница "Каталог".
+Была разработана стартовая страница магазина, а также была создана БД и с помощью нее была реализована страница "Каталог".
